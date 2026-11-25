@@ -1,6 +1,7 @@
 """Settings read from environment variables (never hard-code secrets)."""
 
 import os
+import sys
 from dataclasses import dataclass
 
 
