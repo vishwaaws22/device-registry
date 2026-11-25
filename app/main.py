@@ -54,6 +54,7 @@ def health() -> dict[str, str]:
         "version": __version__,
         "env": get_settings().app_env,
         "heartbeat_timeout_seconds": str(get_settings().heartbeat_timeout_seconds),
+        "service": "device-registry",
     }
 
 
