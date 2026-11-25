@@ -126,3 +126,18 @@ app/config.py             settings from environment variables
 simulator/scanner_sim.py  simulated scanner device
 tests/                    pytest tests
 ```
+
+## Team and workflow
+
+| Role | GitHub user |
+|---|---|
+| Repository owner, releases | @vishwaaws22 |
+| Developer, reviewer | @vishwanathms1982 |
+
+- `main` is protected by the ruleset `protect-main`: changes arrive by pull request with one
+  approval from a code owner and a passing `test` check. Nobody pushes to `main` directly.
+- Branch names: `feature/<topic>`, `fix/<topic>`, `docs/<topic>`. One purpose per pull request.
+- Before every push: `ruff format .`, `ruff check .`, `ruff format --check .`, `pytest -q`.
+- Releases are annotated tags `vMAJOR.MINOR.PATCH` created on `main` after a green run.
+- Secrets never enter the repository; configuration comes from environment variables
+  (see `.env.example`).
