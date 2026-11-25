@@ -49,7 +49,12 @@ def _view(device: Device) -> DeviceView:
 
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "ok", "version": __version__, "env": get_settings().app_env}
+    return {
+        "status": "ok",
+        "version": __version__,
+        "env": get_settings().app_env,
+        "heartbeat_timeout_seconds": str(get_settings().heartbeat_timeout_seconds),
+    }
 
 
 @app.post("/devices", response_model=DeviceView, status_code=201)
